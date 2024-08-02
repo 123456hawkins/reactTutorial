@@ -75,6 +75,7 @@ function Section({ children }) {
   const level = useContext(LevelContext);
   return (
     <section style={{ border: "1px solid black", padding: 10 }} className="section">
+      {/* 使用<LevelContext...包裹 */}
       <LevelContext.Provider value={level + 1}>{children}</LevelContext.Provider>
     </section>
   );
