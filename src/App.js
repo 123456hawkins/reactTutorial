@@ -1,12 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Fragment, useState } from "react";
-
+import Connect from "./connect";
+import { TestSlot } from "./slot";
+import { TestCtoFMoudle } from "./childToFather";
+import { TestContext } from "./testContext";
 function App() {
   const divContent = "testesetse";
   const divClass = "firstClass";
   const flag = true;
-  
+
   // 条件渲染
   let divContent2 = null;
   if (flag) {
@@ -23,19 +26,18 @@ function App() {
   ];
   // 状态处理
   // 基本数据
-  let [text,setText]=useState('测试')
+  let [text, setText] = useState("测试");
   // 对象
-  let [testObj,setTestObj]=useState({
-    name:'test',title:'testTitle'
-  })
+  let [testObj, setTestObj] = useState({
+    name: "test",
+    title: "testTitle",
+  });
   // 数组
-  let [testArr,setTestArr]=useState([
+  let [testArr, setTestArr] = useState([
     { id: 1, name: "小王" },
     { id: 2, name: "小张" },
     { id: 3, name: "小李" },
-  ])
-  
-
+  ]);
 
   const listContent = list.map((item) => {
     return (
@@ -46,19 +48,22 @@ function App() {
       </Fragment>
     );
   });
-  const testListContent=testArr.map((item)=>(
-    <li key={item.id}>
-      {item.name}
-    </li>
-  ))
+  const testListContent = testArr.map((item) => <li key={item.id}>{item.name}</li>);
   //事件
-  const handleClick=(e)=>{
+  const handleClick = (e) => {
     // alert('dianji')
     console.log(e);
-    setText('非测试')
-    setTestObj({...testObj,title:"更换title"})//切记,title一定要放在...testObj后面,否则会覆盖不正确
-    setTestArr(testArr.filter(item=>item.name!=='小李'))
-  }
+    setText("非测试");
+    setTestObj({ ...testObj, title: "更换title" }); //切记,title一定要放在...testObj后面,否则会覆盖不正确
+    setTestArr(testArr.filter((item) => item.name !== "小李"));
+  };
+  const toChildData = {
+    serialNum: "12312312",
+    childChildData: {
+      title: "孙子标题",
+      name: "孙子",
+    },
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -70,13 +75,19 @@ function App() {
         {/* 基本数据状态处理 */}
         <div>基本类型数据状态处理:{text}</div>
         {/* 对象数据状态处理 */}
-        <div>对象类型状态处理:{testObj.name} {testObj.title}</div>
+        <div>
+          对象类型状态处理:{testObj.name} {testObj.title}
+        </div>
         {/* 数组数据状态处理 */}
         <p>数组数据状态处理:</p>
-        <ul>
-          {testListContent}
-        </ul>
+        <ul>{testListContent}</ul>
       </header>
+      <Connect {...toChildData}></Connect>
+
+      <TestSlot></TestSlot>
+      <TestCtoFMoudle></TestCtoFMoudle>
+      {/* 测试Context */}
+      <TestContext></TestContext>
     </div>
   );
 }
