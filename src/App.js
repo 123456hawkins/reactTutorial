@@ -5,6 +5,13 @@ import Connect from "./connect";
 import { TestSlot } from "./slot";
 import { TestCtoFMoudle } from "./childToFather";
 import { TestContext } from "./testContext";
+import TestReducer from "./testReducer";
+import TestUseRef1 from "./testUseRef1";
+import TestUseRef2 from "./testUseRef2";
+import TestUseRef3 from "./testUseRef3";
+import TestUseEffect from "./testUseEffect";
+import TestUseMemo from "./testUseMemo";
+import TestUseCallBack from "./testUseCallback";
 function App() {
   const divContent = "testesetse";
   const divClass = "firstClass";
@@ -88,6 +95,15 @@ function App() {
       <TestCtoFMoudle></TestCtoFMoudle>
       {/* 测试Context */}
       <TestContext></TestContext>
+      {/* reactHooks */}
+      <h1>------------reactHooks-----------------</h1>
+      <TestReducer></TestReducer>
+      <TestUseRef1></TestUseRef1>
+      <TestUseRef2></TestUseRef2>
+      <TestUseRef3></TestUseRef3>
+      <TestUseEffect></TestUseEffect>
+      <TestUseMemo></TestUseMemo>
+      <TestUseCallBack></TestUseCallBack>
     </div>
   );
 }
