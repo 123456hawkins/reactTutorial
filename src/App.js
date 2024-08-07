@@ -12,6 +12,7 @@ import TestUseRef3 from "./testUseRef3";
 import TestUseEffect from "./testUseEffect";
 import TestUseMemo from "./testUseMemo";
 import TestUseCallBack from "./testUseCallback";
+import { Link, Outlet } from "react-router-dom";
 function App() {
   const divContent = "testesetse";
   const divClass = "firstClass";
@@ -71,6 +72,31 @@ function App() {
       name: "孙子",
     },
   };
+  const TestRouterComponet = () => {
+    return (
+      <div>
+        <h3>-----------测试router-------------</h3>
+        <nav
+          style={{
+            borderBottom: "solid 1px",
+            paddingBottom: "1rem",
+          }}
+        >
+          <Link to="/test1" style={{ marginRight: 10 }}>
+            测试页面一
+          </Link>
+          <Link to="/test2" style={{ marginRight: 10 }}>
+            测试页面二
+          </Link>
+          <Link to="/invoices" style={{ marginRight: 10 }}>
+            invoice
+          </Link>
+          <Link to="/shoes">shoes</Link>
+        </nav>
+        <Outlet></Outlet>
+      </div>
+    );
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -104,6 +130,7 @@ function App() {
       <TestUseEffect></TestUseEffect>
       <TestUseMemo></TestUseMemo>
       <TestUseCallBack></TestUseCallBack>
+      <TestRouterComponet></TestRouterComponet>
     </div>
   );
 }
