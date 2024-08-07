@@ -13,6 +13,7 @@ import TestUseEffect from "./testUseEffect";
 import TestUseMemo from "./testUseMemo";
 import TestUseCallBack from "./testUseCallback";
 import { Link, Outlet } from "react-router-dom";
+import TestRedux from "./testRedux";
 function App() {
   const divContent = "testesetse";
   const divClass = "firstClass";
@@ -131,6 +132,9 @@ function App() {
       <TestUseMemo></TestUseMemo>
       <TestUseCallBack></TestUseCallBack>
       <TestRouterComponet></TestRouterComponet>
+      <br></br>
+      <h1>-------redux-----------</h1>
+      <TestRedux></TestRedux>
     </div>
   );
 }
